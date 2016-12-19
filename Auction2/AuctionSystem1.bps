@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+<org.eventb.core.psStatus name="inv11/THM" org.eventb.core.confidence="0" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="inv17/THM" org.eventb.core.confidence="0" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv12/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv22/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv15/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="152" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv18/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv19/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv24/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="152" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="addUser/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="addUser/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="createAuction/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="createAuction/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="createAuction/inv12/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="createAuction/inv22/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="createAuction/act4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="addBid/grd6/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="163" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="addBid/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="163" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="addBid/inv22/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="163" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="addBid/inv15/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="163" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="cancelAuction/inv2/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="166" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="cancelAuction/inv12/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="166" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="cancelAuction/inv22/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="166" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="incrClock/inv19/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="closeAuction/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="closeAuction/inv2/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="closeAuction/inv12/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="closeAuction/inv22/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="giveRating/inv24/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="viewHistoryOfBids/grd1/THM" org.eventb.core.confidence="0" org.eventb.core.poStamp="164" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="viewHistoryOfBids/grd2/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="checkAuctionStatus/grd1/THM" org.eventb.core.confidence="0" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="checkAuctionStatus/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="162" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

@@ -1,0 +1,256 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+\usepackage {bsymb,b2latex}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr,lastpage,color}
+\lhead{\rm An Event-B Specification of AuctionSystem1}
+\rhead {\rm Page \thepage~of \pageref{LastPage}}
+\lfoot{}\cfoot{}\rfoot{}
+\pagestyle{fancy}
+%---------------------------------------------------------
+\begin{document}
+\thispagestyle{empty}
+\begin{description}
+\BTitle{AuctionSystem1}{6May2016}{02:47:09 PM}
+\MACHINE{AuctionSystem1}
+\SEES{AuctionContext1}
+\VARIABLES
+	\begin{description}
+		\Item{ user }
+		\Item{ auction }
+		\Item{ item }
+		\Item{ bids }
+		\Item{ bidder }
+		\Item{ seller }
+		\Item{ startTime }
+		\Item{ endTime }
+		\Item{ value }
+		\Item{ reservePrice }
+		\Item{ rating }
+		\Item{ clock }
+		\Item{ bidUsers }
+		\Item{ userRatings }
+	\end{description}
+\INVARIANTS
+	\begin{description}
+		\nItem{ inv1 }{ user \subseteq  USER }
+		\nItem{ inv16 }{ auction \subseteq  AUCTION }
+		\nItemY{ inv2 }{ item \in  user \tfun  (auction \tinj  ITEM) }{ 		\\\hspace*{1.4 cm}  curried function which returns the item a user is selling }
+		\nItemY{ inv5 }{ user = bidder \bunion  seller }{ 		\\\hspace*{1.4 cm}  Every user must be a bidder and/or a seller }
+		\nItem{ inv6 }{ bidder \subseteq  USER }
+		\nItem{ inv7 }{ seller \subseteq  USER }
+		\nItem{ {\it inv11} }{ startTime \in  auction \tfun  \nat }
+		\nItem{ inv12 }{ endTime \in  auction \tfun  \nat }
+		\nItem{ inv22 }{ bids \in  auction \rel  BID }
+		\nItem{ inv23 }{ bidUsers \in  \pow(BID \cprod  USER) }
+		\nItem{ inv15 }{ value \in  \pow(BID \cprod  \nat) }
+		\nItem{ {\it inv17} }{ reservePrice \in  auction \tfun  \nat }
+		\nItem{ inv18 }{ rating \subseteq  1\upto 5 }
+		\nItem{ inv19 }{ clock \in  \nat }
+		\nItem{ inv24 }{ userRatings \in  \pow(rating \cprod  USER) }
+	\end{description}
+\EVENTS
+	\INITIALISATION
+		\begin{description}
+		\BeginAct
+			\begin{description}
+			\nItem{ act1 }{ user :=  \emptyset  }
+			\nItem{ act2 }{ auction :=  \emptyset  }
+			\nItem{ act3 }{ item :=  \emptyset  }
+			\nItem{ act4 }{ bids :=  \emptyset   }
+			\nItem{ act5 }{ bidder :=  \emptyset  }
+			\nItem{ act6 }{ seller :=  \emptyset  }
+			\nItem{ act7 }{ startTime :=  \emptyset  }
+			\nItem{ act8 }{ endTime :=  \emptyset  }
+			\nItem{ act10 }{ value :=  \emptyset  }
+			\nItem{ act11 }{ reservePrice :=  \emptyset  }
+			\nItem{ act12 }{ rating :=  \emptyset  }
+			\nItem{ act13 }{ clock :=  0 }
+			\nItem{ act14 }{ bidUsers :=  \emptyset  }
+			\nItem{ act15 }{ userRatings :=  \emptyset  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {addUser}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{u }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ u \in  USER }
+			\nItem{ grd2 }{ u \notin  user }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act1 }{ user :=  user \bunion  \{ u\}  }{ 		\\\hspace*{1.4 cm}  adds the new user to the set of users }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {createAuction}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{a }
+			\Item{i }
+			\Item{u }
+			\Item{st }
+			\Item{et }
+			\Item{rsv }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ a \in  AUCTION }
+			\nItem{ grd3 }{ i \in  ITEM }
+			\nItem{ grd5 }{ u \in  user }
+			\nItem{ grd6 }{ st \in  \nat }
+			\nItem{ grd7 }{ et \in  \nat }
+			\nItem{ grd8 }{ rsv \in  \nat }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act3 }{ auction :=  auction \bunion  \{ a\}  }{ 		\\\hspace*{1.4 cm}  adds the new auction to the set of auctions }
+			\nItemY{ act4 }{ item(u) :=  item(u) \bunion  \{ a\mapsto i\}  }{ 		\\\hspace*{1.4 cm}  adds the item to the set of items and points to the auction }
+			\nItem{ act5 }{ startTime(a) :=  st }
+			\nItem{ act6 }{ endTime(a) :=  et }
+			\nItem{ act7 }{ reservePrice(a) :=  rsv }
+			\nItem{ act8 }{ seller :=  seller \bunion  \{ u\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {addBid}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{u }
+			\Item{a }
+			\Item{b }
+			\Item{v }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ a \in  auction }
+			\nItem{ grd2 }{ u \in  user }
+			\nItem{ grd4 }{ b \in  BID }
+			\nItem{ grd5 }{ v \in  \nat }
+			\nItemY{ grd6 }{ v >  max((bids;value)[\{ a\} ]) }{		\\\hspace*{1.4 cm}  the value of the new bid is higher than highest bid so far  } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItem{ act1 }{ value(b) :=  v  }
+			\nItemY{ act2 }{ bids :=  bids \bunion  \{ a\mapsto b\}  }{ 		\\\hspace*{1.4 cm}  adds the pair for the auction and new bid to the relation }
+			\nItem{ act3 }{ bidder :=  bidder \bunion  \{ u\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {cancelAuction}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{a }
+			\Item{st }
+			\Item{et }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemY{ grd1 }{ et \in  \nat \land  et \leq  clock }{		\\\hspace*{1.4 cm}  the auction has not already fiinished  } 
+			\nItem{ grd2 }{ st \in  \nat }
+			\nItem{ grd3 }{ a \in  auction }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act1 }{ auction :=  auction\setminus \{ a\}  }{ 		\\\hspace*{1.4 cm}  removes the auction from the set of auctions }
+			\nItemY{ act2 }{ bids :=  \{ a\}  \domsub  bids }{ 		\\\hspace*{1.4 cm}  removes the auction from the domain of the bids relation }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {incrClock}
+		\begin{description}
+		\BeginAct
+			\begin{description}
+			\nItem{ act1 }{ clock :=  clock + 1 }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {closeAuction}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{a }
+			\Item{b }
+			\Item{u }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ a \in  auction }
+			\nItem{ grd3 }{ b \in  BID }
+			\nItem{ grd4 }{ u \in  bidder }
+			\nItemY{ grd2 }{ clock \geq  endTime(a) }{		\\\hspace*{1.4 cm}  the time is at or past the endTime for the auction } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItem{ act1 }{ auction :=  auction \setminus \{ a\}  }
+			\nItem{ act2 }{ bids :=  \{ a\}  \domsub  bids }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {giveRating}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{b }
+			\Item{s }
+			\Item{r }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ b \in  bidder }
+			\nItem{ grd2 }{ s \in  seller }
+			\nItem{ grd3 }{ r \in  rating }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act1 }{ userRatings :=  userRatings \bunion  \{ r\mapsto s\}  }{ 		\\\hspace*{1.4 cm}  adds the rating to the relation of ratings and sellers }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {viewHistoryOfBids}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{a }
+			\Item{result }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ {\it grd1} }{ a \in  auction }
+			\nItem{ grd2 }{ result = bids(a) }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\Item{ skip }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {checkAuctionStatus}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{a }
+			\Item{active }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ {\it grd1} }{ a \in  auction }
+			\nItemY{ grd3 }{ active = bool(startTime(a) \leq  clock \land  endTime(a) \geq  clock) }{		\\\hspace*{1.4 cm}  returns true of the time is between the begin and end time of the auction } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\Item{ skip }
+			\end{description}
+		\EndAct
+		\end{description}
+\END
+\end{description}
+\end{document}

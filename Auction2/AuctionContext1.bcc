@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scCarrierSet name="AUCTION" org.eventb.core.source="/Auction2/AuctionContext1.buc|org.eventb.core.contextFile#AuctionContext1|org.eventb.core.carrierSet#(" org.eventb.core.type="ℙ(AUCTION)"/>
+<org.eventb.core.scCarrierSet name="BID" org.eventb.core.source="/Auction2/AuctionContext1.buc|org.eventb.core.contextFile#AuctionContext1|org.eventb.core.carrierSet#*" org.eventb.core.type="ℙ(BID)"/>
+<org.eventb.core.scCarrierSet name="ITEM" org.eventb.core.source="/Auction2/AuctionContext1.buc|org.eventb.core.contextFile#AuctionContext1|org.eventb.core.carrierSet#)" org.eventb.core.type="ℙ(ITEM)"/>
+<org.eventb.core.scCarrierSet name="USER" org.eventb.core.source="/Auction2/AuctionContext1.buc|org.eventb.core.contextFile#AuctionContext1|org.eventb.core.carrierSet#'" org.eventb.core.type="ℙ(USER)"/>
+</org.eventb.core.scContextFile>
